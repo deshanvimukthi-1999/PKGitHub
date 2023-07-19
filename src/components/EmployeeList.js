@@ -5,16 +5,37 @@ const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    // Fetch all employees from the API and update the state
+  
     employeeService.getAllEmployees()
       .then((response) => {
         setEmployees(response.data);
       })
       .catch((error) => {
-        // Handle error, display an error message, or take necessary actions.
+    
         console.error('Error fetching employees:', error);
       });
   }, []);
+
+  const handleEditEmployee = (empNo) => {
+  
+    console.log('Edit employee:', empNo);
+  };
+
+  const handleDeleteEmployee = (empNo) => {
+
+    if (window.confirm('Are you sure you want to delete this employee?')) {
+      employeeService.deleteEmployee(empNo)
+        .then((response) => {
+   
+          setEmployees((prevEmployees) => prevEmployees.filter((employee) => employee.empNo !== empNo));
+          console.log('Employee deleted successfully:', response.data);
+        })
+        .catch((error) => {
+         
+          console.error('Error deleting employee:', error);
+        });
+    }
+  };
 
   return (
     <div>
@@ -22,16 +43,29 @@ const EmployeeList = () => {
       {employees.length === 0 ? (
         <div>No employees found.</div>
       ) : (
-        <ul>
-          {employees.map((employee) => (
-            <li key={employee.empNo}>
-              <p>Employee Number: {employee.empNo}</p>
-              <p>Employee Name: {employee.empName}</p>
-              <p>Department Code: {employee.departmentCode}</p>
-              <hr />
-            </li>
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Employee Number</th>
+              <th>Employee Name</th>
+              <th>Department Code</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {employees.map((employee) => (
+              <tr key={employee.empNo}>
+                <td>{employee.empNo}</td>
+                <td>{employee.empName}</td>
+                <td>{employee.departmentCode}</td>
+                <td>
+                  <button onClick={() => handleEditEmployee(employee.empNo)}>Edit</button>
+                  <button onClick={() => handleDeleteEmployee(employee.empNo)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

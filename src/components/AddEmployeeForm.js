@@ -23,24 +23,19 @@ const AddEmployeeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic data validation
+
     if (!employeeData.empNo || !employeeData.empName || !employeeData.departmentCode) {
       alert('Please fill in all required fields.');
       return;
     }
 
-    // if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(employeeData.empNo)) {
-    //   alert('Invalid email format.');
-    //   return;
-    // }
-
     employeeService.addEmployee(employeeData)
       .then((response) => {
-        // Handle success, display a message, or redirect to the employee list page.
+       
         console.log('Employee added successfully:', response.data);
       })
       .catch((error) => {
-        // Handle error, display an error message, or take necessary actions.
+       
         console.error('Error adding employee:', error);
       });
   };

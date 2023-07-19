@@ -16,13 +16,12 @@ const EmployeeDetails = ({ empNo }) => {
   });
 
   useEffect(() => {
-    // Fetch the employee data using empNo from the API and update the state
+
     employeeService.getEmployeeById(empNo)
       .then((response) => {
         setEmployeeData(response.data);
       })
       .catch((error) => {
-        // Handle error, display an error message, or take necessary actions.
         console.error('Error fetching employee details:', error);
       });
   }, [empNo]);

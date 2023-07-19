@@ -16,13 +16,13 @@ const EditEmployeeForm = ({ empNo }) => {
   });
 
   useEffect(() => {
-    // Fetch the employee data using empNo from the API and update the state
+   
     employeeService.getEmployeeById(empNo)
       .then((response) => {
         setEmployeeData(response.data);
       })
       .catch((error) => {
-        // Handle error, display an error message, or take necessary actions.
+     
         console.error('Error fetching employee details:', error);
       });
   }, [empNo]);
@@ -35,24 +35,19 @@ const EditEmployeeForm = ({ empNo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic data validation
+ 
     if (!employeeData.empNo || !employeeData.empName || !employeeData.departmentCode) {
       alert('Please fill in all required fields.');
       return;
     }
 
-    if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(employeeData.empNo)) {
-      alert('Invalid email format.');
-      return;
-    }
-
     employeeService.updateEmployee(empNo, employeeData)
       .then((response) => {
-        // Handle success, display a message, or redirect to the employee details page.
+        
         console.log('Employee updated successfully:', response.data);
       })
       .catch((error) => {
-        // Handle error, display an error message, or take necessary actions.
+     
         console.error('Error updating employee:', error);
       });
   };
