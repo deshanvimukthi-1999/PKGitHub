@@ -1,0 +1,139 @@
+/* App.css */
+.App {
+  text-align: center;
+  margin: 20px;
+}
+
+/* AddEmployeeForm.css */
+.AddEmployeeForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.AddEmployeeForm label {
+  margin-bottom: 8px;
+}
+
+.AddEmployeeForm input {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.AddEmployeeForm button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* EditEmployeeForm.css */
+.EditEmployeeForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.EditEmployeeForm label {
+  margin-bottom: 8px;
+}
+
+.EditEmployeeForm input {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.EditEmployeeForm button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.EditEmployeeForm button.cancel {
+  background-color: #dc3545;
+}
+
+/* EmployeeDetails.css */
+.EmployeeDetails {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.EmployeeDetails h2 {
+  margin-bottom: 16px;
+}
+
+.EmployeeDetails p {
+  margin-bottom: 8px;
+}
+
+/* EmployeeList.css */
+.EmployeeList {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.EmployeeList input {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.EmployeeList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.EmployeeList th,
+.EmployeeList td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.EmployeeList th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.EmployeeList td {
+  text-align: center;
+}
+
+.EmployeeList button {
+  padding: 4px 8px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.EmployeeList button.delete {
+  background-color: #dc3545;
+}
